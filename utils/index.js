@@ -9,12 +9,17 @@ const promptUser = () => {
   return inquirer.prompt([
     {
       type: 'input',
-      name: 'task',
+      name: 'title',
+      message: 'What is the title of the README?',
+    }, 
+    {
+      type: 'input',
+      name: 'description',
       message: 'What was your task?',
     },
     {
       type: 'input',
-      name: 'motivation',
+      name: 'tableOfContents',
       message: 'What was your motivation?',
     },
     {
@@ -29,24 +34,29 @@ const promptUser = () => {
     },
     {
       type: 'input',
-      name: 'credits',
+      name: 'license',
       message: 'How and who helped you complete this assignment?',
     },
     {
       type: 'input',
-      name: 'userStory',
+      name: 'contributing',
       message: 'write your user story.',
     },
     {
         type: 'input',
-        name: 'acceptanceCriteria',
+        name: 'test',
+        message: 'write your acceptance criteria.',
+      },
+      {
+        type: 'input',
+        name: 'questions',
         message: 'write your acceptance criteria.',
       }
   ]);
 };
 
 const generateReadMe = ({ task, motivation, installation, usage, credits, userStory, acceptanceCriteria }) =>
-`# Read Me Generator
+`# READ ME GENERATOR
 
 ## Your Task
 
