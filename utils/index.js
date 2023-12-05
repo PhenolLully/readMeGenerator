@@ -9,81 +9,74 @@ const promptUser = () => {
   return inquirer.prompt([
     {
       type: 'input',
+      name: 'task',
+      message: 'What was your task?',
+    },
+    {
+      type: 'input',
       name: 'motivation',
       message: 'What was your motivation?',
     },
     {
-      type: 'input',
-      name: 'location',
-      message: 'Where are you from?',
+        type: 'input',
+        name: 'installation',
+        message: 'what were the steps required to start your project',
     },
     {
       type: 'input',
-      name: 'hobby',
-      message: 'What is your favorite hobby?',
+      name: 'usage',
+      message: 'Provide instructions and examples for use.',
     },
     {
       type: 'input',
-      name: 'food',
-      message: 'What is your favorite food?',
+      name: 'credits',
+      message: 'How and who helped you complete this assignment?',
     },
     {
       type: 'input',
-      name: 'github',
-      message: 'Enter your GitHub Username',
+      name: 'userStory',
+      message: 'write your user story.',
     },
     {
-      type: 'input',
-      name: 'linkedin',
-      message: 'Enter your LinkedIn URL.',
-    },
+        type: 'input',
+        name: 'acceptanceCriteria',
+        message: 'write your acceptance criteria.',
+      }
   ]);
 };
 
-const generateHTML = ({ name, location, github, linkedin }) =>
-  `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-  <title>Document</title>
-</head>
-<body>
-  <header class="p-5 mb-4 header bg-light">
-    <div class="container">
-      <h1 class="display-4">Hi! My name is ${name}</h1>
-      <p class="lead">I am from ${location}.</p>
-      <h3>Example heading <span class="badge bg-secondary">Contact Me</span></h3>
-      <ul class="list-group">
-        <li class="list-group-item">My GitHub username is ${github}</li>
-        <li class="list-group-item">LinkedIn: ${linkedin}</li>
-      </ul>
-    </div>
-  </header>
-</body>
-</html>`;
-
+const generateReadMe = ({ task, motivation, installation, usage, credits, userStory, acceptanceCriteria }) =>
 `# Read Me Generator
 
 ## Your Task
 
+${task}
+
 - What was your motivation?
+
 ${motivation}
 
 ## Installation
 
+${installation}
 
 ## Usage
 
+${usage}
+
 ## Credits
+
+${credits}
 
 ## User Story
 
-
+${userStory}
 
 ## Acceptance Criteria
-`
+
+${acceptanceCriteria}
+
+`;
 
 
 
@@ -92,8 +85,8 @@ const init = () => {
   promptUser()
     // Use writeFile method imported from fs.promises to use promises instead of
     // a callback function
-    .then((answers) => writeFile('index.html', generateHTML(answers)))
-    .then(() => console.log('Successfully wrote to index.html'))
+    .then((answers) => writeFile('README.md', generateReadMe(answers)))
+    .then(() => console.log('Successfully wrote to README.md'))
     .catch((err) => console.error(err));
 };
 
