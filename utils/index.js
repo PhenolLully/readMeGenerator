@@ -15,48 +15,53 @@ const promptUser = () => {
     {
       type: 'input',
       name: 'description',
-      message: 'What was your task?',
+      message: 'Description of project',
     },
     {
       type: 'input',
       name: 'tableOfContents',
-      message: 'What was your motivation?',
+      message: 'Table of Contents for Users to see',
     },
     {
         type: 'input',
         name: 'installation',
-        message: 'what were the steps required to start your project',
+        message: 'what were the steps to install your project?',
     },
     {
       type: 'input',
       name: 'usage',
-      message: 'Provide instructions and examples for use.',
+      message: 'Examples of use of project',
     },
     {
-      type: 'input',
+      type: 'list',
       name: 'license',
-      message: 'How and who helped you complete this assignment?',
+      message: 'Any licenses?',
     },
     {
       type: 'input',
       name: 'contributing',
-      message: 'write your user story.',
+      message: 'Who helped with this project?',
     },
     {
         type: 'input',
         name: 'test',
-        message: 'write your acceptance criteria.',
+        message: 'Any test for the application?',
       },
       {
         type: 'input',
         name: 'questions',
-        message: 'write your acceptance criteria.',
+        message: 'Github Username?',
+      },
+      {
+        type: 'input',
+        name: 'questions',
+        message: 'Enter Email',
       }
   ]);
 };
 
 const generateReadMe = ({ task, motivation, installation, usage, credits, userStory, acceptanceCriteria }) =>
-`# READ ME GENERATOR
+`# Title
 
 ## Your Task
 
