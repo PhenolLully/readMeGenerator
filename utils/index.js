@@ -18,7 +18,7 @@ const promptUser = () => {
       message: 'Description of project',
     },
     {
-      type: 'input',
+      type: 'list',
       name: 'tableOfContents',
       message: 'Table of Contents for Users to see',
     },
@@ -63,13 +63,15 @@ const promptUser = () => {
 const generateReadMe = ({ task, motivation, installation, usage, credits, userStory, acceptanceCriteria }) =>
 `# Title
 
-## Your Task
+${title}
 
-${task}
+## Description
 
-- What was your motivation?
+${description}
 
-${motivation}
+## Table of Contents
+
+${tableOfContents}
 
 ## Installation
 
@@ -79,17 +81,21 @@ ${installation}
 
 ${usage}
 
-## Credits
+## License
 
-${credits}
+${license}
 
-## User Story
+## Contributing
 
-${userStory}
+${contributing}
 
-## Acceptance Criteria
+## Tests
 
-${acceptanceCriteria}
+${test}
+
+## Questions
+
+${questions}
 
 `;
 
